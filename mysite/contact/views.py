@@ -1,11 +1,9 @@
-# Create your views here.
-from django.template.loader import get_template
-from django.template import Template,Context
-from django.http import Http404, HttpResponse
+from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
-import datetime
 
 def contact(request):
+    import pdb;pdb.set_trace()
     errors = []
     if request.method == 'POST':
         if not request.POST.get('subject', ''):
@@ -18,14 +16,12 @@ def contact(request):
             send_mail(
                 request.POST('subject'),
                 request.POST('message'),
-                request.POST.get('email'),'grohit@zeomega.com'),
-                ['rohitvernekar0072gmail.com'],
+                request.POST.get('email','grohit@zeomega.com'),['rohitvernekar007@gmail.com'],
             )
-            return HttpResponseRedirect('/contact/thanks/') 
-    return render(request,'contact_form.html'),{
-        'errors': errors,
-        'subject': request.POST.get('subject', ''),
-        'message': request.POST.get('message',''),
-        'email': request.POST.get('email',''),
+            return HttpResponseRedirect('/contact/thanks/')
+    return render(request, 'contact_form.html', {
+            'errors': errors,
+            'subject': request.POST.get('subject', ''),
+            'message': request.POST.get('message', ''),
+            'email': request.POST.get('email', ''),
     })
-

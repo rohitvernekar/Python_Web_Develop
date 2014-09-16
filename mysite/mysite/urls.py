@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import *
 from mysite.views import hello, current_datetime ,hours_ahead , ua_display_good1,display_meta
 from books import views
-from contact.views import contact
+from contact.views import contact 
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
