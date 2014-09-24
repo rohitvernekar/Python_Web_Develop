@@ -1,8 +1,9 @@
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from forms import ContactForm
 
-
+"""
 def contact(request):
     errors = []
     if request.method == 'POST':
@@ -27,4 +28,24 @@ def contact(request):
         'message': request.POST.get('message', ''),
         'email': request.POST.get('email', ''),
     })
+"""
 
+def contact(request):
+    import pdb;pdb.set_trace()
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            send_mail(
+                cd['subject'],
+                cd['message'],
+                cd.get('email','rohitvernekar0072gmail.com'),
+                ['grohit@zeomega.com','aijazshekh0117@gmail.com']
+            )
+            return HttpResponseRedirect('/contact/thanks/')
+    else:
+        form =ContactForm()
+    return render(request, 'contact_form.html',{'form':form})          
+
+def thanks(request):
+    return render(request, 'thanks_form.html')
