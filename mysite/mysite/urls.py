@@ -3,6 +3,8 @@ from mysite.views import hello, current_datetime ,hours_ahead , ua_display_good1
 from books import views
 from contact.views import contact 
 from contact.views import thanks
+from loginpage.views import login
+from loginpage.views import index
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -18,6 +20,8 @@ urlpatterns = patterns('',
     url(r'^search/$', views.search),
     url(r'^contact/$',contact),
     url(r'^contact/thanks/$',thanks),
+    url(r'^login/$',login),
+    url(r'^index/$',index),
     # Examples:
     # url(r'^$', 'mysite.views.home', name='home'),
     # url(r'^mysite/', include('mysite.foo.urls')),
