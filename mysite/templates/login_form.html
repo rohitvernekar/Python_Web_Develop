@@ -1,0 +1,31 @@
+<html>
+<head>
+     <title>Login Page </title>
+     <style type="text/css">
+        h1 {
+             color:'#00FFFF'
+             font-family: "Times New Roman", Georgia, Serif;
+             font-size: 150%
+           }
+     </style>
+</head>
+
+<body>
+     <form action="" method="post">
+     <div class="field">
+         {{ loginform.username.errors }}
+         <label for="id_username">UserName</label>
+         {{ loginform.username }}
+         {{ loginform.username.as_table }}
+     </div>
+     <div class="field">
+         {{ loginform.password.errors }}
+         <label for="id_password">Password</label>
+         {{ loginform.password }}
+         {{ loginform.password.as_table }}
+     </div>
+         <input type="submit" value="Submit">
+     </form>
+</body>
+</html>
+     
