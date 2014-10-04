@@ -5,7 +5,9 @@ from contact.views import contact
 from contact.views import thanks
 from loginpage.views import login
 from loginpage.views import index
-
+from loginpage.views import signup
+from loginpage.views import registration
+from loginpage.views import success
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -22,6 +24,9 @@ urlpatterns = patterns('',
     url(r'^contact/thanks/$',thanks),
     url(r'^login/$',login),
     url(r'^index/$',index),
+    url(r'^signup/$',signup),
+    url(r'^register/$',registration),
+    url(r'^success/$',success),
     # Examples:
     # url(r'^$', 'mysite.views.home', name='home'),
     # url(r'^mysite/', include('mysite.foo.urls')),
