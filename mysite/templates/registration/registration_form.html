@@ -1,0 +1,45 @@
+<html>
+    <head> <title> Registration Page </title>
+    </head>
+
+<body>
+    <form action="" method="post">
+    <div class="namefield">
+    {{ registrationform.name.errors }}
+    <label for="id_name">Name</label>
+    {{ registrationform.name }}
+    {{ registrationform.name.as_table }}
+    </div>
+    
+    <div class="usernamefield">
+    {{ registrationform.username.errors }}
+    <label for="id_username">Username</label>
+    {{ registrationform.username }}
+    {{ registrationform.username.as_table }}
+    </div>
+
+
+    <div class="emailfield">
+    {{ registrationform.email.errors }}
+    <label for="id_email">Email</label>
+    {{ registrationform.email }}
+    {{ registrationform.email.as_table }}
+    </div>
+
+    <div class="passwordfield">
+    {{ registrationform.password.errors }}
+    <label for="id_password">Password</label>
+    {{ registrationform.password }}
+    {{ registrationform.password.as_table }}
+    </div>
+
+    <div class="password2field">
+    {{ registrationform.password2.errors }}
+    <label for="id_password2">Confirm Password</label>
+    {{ registrationform.password2 }}
+    {{ registrationform.password2.as_table }}
+    </div>
+    <input id="id_register" type="submit" value="Register">
+    </form>
+  </body>
+</html> 
